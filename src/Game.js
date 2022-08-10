@@ -115,6 +115,7 @@ class Game {
         this.autoMove,
         this.snakeMoved.bind(this)
       )
+      broadcast('New player has joined!');
       this.snakes.push(snake)
     } else {
       try {
@@ -266,6 +267,12 @@ class Game {
 
   quit() {
     process.exit(0)
+  }
+
+  broadcast(sentence) {
+    if (this.snakes.length !== 0) {
+      this.snakes.forEach(snake => snake.client.write(sentence));
+    }
   }
 }
 
