@@ -115,7 +115,7 @@ class Game {
         this.autoMove,
         this.snakeMoved.bind(this)
       )
-      broadcast('New player has joined!');
+      this.broadcast('New player has joined!');
       this.snakes.push(snake)
     } else {
       try {
